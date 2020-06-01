@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Almacenamiento</string>
+    <string name="name">Almacenamiento de datos</string>
+    <string name="Local">Almacenar archivo local</string>
+    <string name="ext">Almacenar archivo externo</string>
+    <string name="publico">Externo publico</string>
+    <string name="privado">Externo privado</string>
+    <string name="crear">Crear Registro</string>
+    <string name="registro">Nombre del registro</string>
+</resources>
