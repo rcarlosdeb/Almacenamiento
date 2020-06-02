@@ -33,7 +33,7 @@ public class Externo extends AppCompatActivity {
             Intent abrirRegistro = new Intent(Externo.this, RegistroDatos.class);
             Bundle datos= new Bundle();
             //abrirRegistro.putExtra("publico", 1);
-            datos.putString("tipo","local");
+            datos.putString("tipo","publico");
             datos.putString("titulo","Almacenamiento externo Público");
             abrirRegistro.putExtras(datos);
             startActivity(abrirRegistro);
@@ -46,7 +46,7 @@ public class Externo extends AppCompatActivity {
             Intent abrirRegistro = new Intent(Externo.this, RegistroDatos.class);
             Bundle datos= new Bundle();
             //abrirRegistro.putExtra("privado", 1);
-            datos.putString("tipo","local");
+            datos.putString("tipo","privado");
             datos.putString("titulo","Almacenamiento externo Privado");
             abrirRegistro.putExtras(datos);
             startActivity(abrirRegistro);

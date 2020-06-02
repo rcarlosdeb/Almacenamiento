@@ -69,6 +69,14 @@
             android:layout_marginTop="@android:dimen/app_icon_size"
             />
 
+        <Button
+            android:id="@+id/externoPrivado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ext_privado"
+            android:layout_marginTop="@android:dimen/app_icon_size"
+            />
+
     </LinearLayout>
 
 

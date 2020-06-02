@@ -48,6 +48,7 @@ public class RegistroDatos extends AppCompatActivity {
             files = getFilesDir().listFiles();
         }else{
             if (registro.getString("tipo").equals("publico")){
+                //CAMBIAR LA RUTA PARA EL DIRECTORIO PUBLICO
                 ruta=getFilesDir();
                 files = getFilesDir().listFiles();
             }else {

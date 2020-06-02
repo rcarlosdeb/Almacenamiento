@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnLocal, btnExterno;
+    private Button btnLocal, btnExterno, btnExternoPrivado;
     String[] permiso = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     @Override
@@ -22,8 +22,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnLocal=(Button) findViewById(R.id.local);
         btnExterno=(Button) findViewById(R.id.externo);
+        btnExternoPrivado=(Button) findViewById(R.id.externoPrivado);
         btnLocal.setOnClickListener(abrirLocal);
         btnExterno.setOnClickListener(abriExterno);
+        btnExternoPrivado.setOnClickListener(abriExternoPrivado);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             Intent localActivity = new Intent(MainActivity.this, Local.class);
             Bundle datos = new Bundle();
             datos.putString("titulo","Almacenamiento Local");
+            datos.putString("tipo","local");
             localActivity.putExtras(datos);
             startActivity(localActivity);
         }
@@ -42,9 +45,23 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener abriExterno = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent externoActivity = new Intent(MainActivity.this, Externo.class);
+            Intent externoActivity = new Intent(MainActivity.this, Local.class);
             Bundle datos = new Bundle();
-            datos.putString("titulo","Almacenamiento Externo");
+            datos.putString("titulo","Almacenamiento Externo Público");
+            datos.putString("tipo","publico");
+            externoActivity.putExtras(datos);
+            startActivity(externoActivity);
+
+        }
+    };
+
+    private View.OnClickListener abriExternoPrivado = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent externoActivity = new Intent(MainActivity.this, Local.class);
+            Bundle datos = new Bundle();
+            datos.putString("titulo","Almacenamiento Externo Privado");
+            datos.putString("tipo","privado");
             externoActivity.putExtras(datos);
             startActivity(externoActivity);
 
