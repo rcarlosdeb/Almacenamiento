@@ -29,16 +29,19 @@
 
 
         <EditText
+            android:id="@+id/txtNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/registro" />
 
         <EditText
+            android:id="@+id/txtContenido"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:hint="Información" />
 
         <Button
+            android:id="@+id/btnGuardar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Guardar" />
