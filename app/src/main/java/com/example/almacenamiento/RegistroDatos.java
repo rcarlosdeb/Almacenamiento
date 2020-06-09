@@ -1,10 +1,12 @@
 package com.example.almacenamiento;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,6 +31,7 @@ public class RegistroDatos extends AppCompatActivity {
     private String nombreNuevo=null;
     private File[] files;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +52,11 @@ public class RegistroDatos extends AppCompatActivity {
         }else{
             if (registro.getString("tipo").equals("publico")){
                 //CAMBIAR LA RUTA PARA EL DIRECTORIO PUBLICO
-                ruta=getFilesDir();
-                files = getFilesDir().listFiles();
+                ruta=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                files = ruta.listFiles();
             }else {
                 ruta = getExternalFilesDir(null);
+                Toast.makeText(this, "RUTA_: " + ruta, Toast.LENGTH_LONG).show();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     files = getExternalFilesDirs(null)[0].listFiles();
                 }else{

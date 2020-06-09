@@ -1,11 +1,13 @@
 package com.example.almacenamiento;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -58,6 +60,7 @@ public class Local extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onStart()
     {
@@ -74,8 +77,8 @@ public class Local extends AppCompatActivity {
         }else{
             if (registro.getString("tipo").equals("publico")){
                 //CAMBIAR LA RUTA PARA EL DIRECTORIO PUBLICO
-                ruta=getFilesDir();
-                files = getFilesDir().listFiles();
+                ruta=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                files = ruta.listFiles();
                 tipo="publico";
             }else {
                 ruta = getExternalFilesDir(null);
